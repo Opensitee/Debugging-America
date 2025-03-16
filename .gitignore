@@ -1,0 +1,8 @@
+# Ignore system files
+**/AppData/
+**/Cookies/
+**/Documents/
+**/Local Settings/
+**/My Documents/
+**/Recent/
+**/Temp/
