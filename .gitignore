@@ -1,8 +1,16 @@
-# Ignore system files
-**/AppData/
-**/Cookies/
-**/Documents/
-**/Local Settings/
-**/My Documents/
-**/Recent/
-**/Temp/
+# Ignore system files and folders
+AppData/
+Documents/
+Downloads/
+Favorites/
+OneDrive/
+Saved Games/
+Searches/
+Videos/
+
+# Ignore other system-related files
+*.log
+*.tmp
+*.bak
+*.swp
+
