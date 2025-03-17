@@ -8,7 +8,8 @@ import pytesseract
 import random
 
 # Specify the path to the tesseract executable
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Replace with your actual Tesseract path
+
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Replace with your actual Tesseract path
 
 from phi.agent import Agent
 from phi.model.google import Gemini
