@@ -6,6 +6,13 @@ from io import BytesIO
 from tempfile import NamedTemporaryFile
 import pytesseract
 import random
+import inspect
+
+def get_method_sig(method):
+    # Use inspect.signature instead of inspect.getargspec
+    sig = inspect.signature(method)
+    return sig
+
 
 # Specify the path to the tesseract executable
 
