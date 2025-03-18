@@ -6,29 +6,13 @@ from io import BytesIO
 from tempfile import NamedTemporaryFile
 import pytesseract
 import random
-import inspect
-
-def get_method_sig(method):
-    # Use inspect.signature instead of inspect.getargspec
-    sig = inspect.signature(method)
-    return sig
-
 
 # Specify the path to the tesseract executable
-
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"  # Replace with your actual Tesseract path
 
 from phi.agent import Agent
 from phi.model.google import Gemini
 from phi.tools.tavily import TavilyTools
-
-# Load API keys from config.json
-with open("config.json") as config_file:
-    config = json.load(config_file)
-
-# Set API keys as environment variables
-os.environ['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'] = config['TAVILY_API_KEY']
-os.environ['AIzaSyA_dKwquR6J0iV1zEg9Bp8ZONr9UqvO_b4'] = config['GOOGLE_API_KEY']
 
 # System Prompt for AI
 SYSTEM_PROMPT = """
@@ -58,7 +42,7 @@ def get_agent():
         model=Gemini(id="gemini-2.0-flash-exp"),
         system_prompt=SYSTEM_PROMPT,
         instructions=INSTRUCTIONS,
-        tools=[TavilyTools(api_key=os.getenv("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"))],
+        tools=[TavilyTools(api_key=st.secrets["TAVILY"]["API_KEY"])],  # Use Tavily API key from secrets
         markdown=True,
     )
 
@@ -153,3 +137,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
